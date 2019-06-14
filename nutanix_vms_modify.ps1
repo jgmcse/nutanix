@@ -6,7 +6,7 @@ File Name: nutanix_vms_modify.ps1
 Author: itparadox@outlook.com (spain)
 Date: jun-2019
 
-Comments: Script developed to get a input file with this syntax:
+Comments: Script developed to get an input file with this syntax:
 
     <cores> ; <GiB ram memory> ; <vmid> ; <cluster>
 
@@ -34,12 +34,12 @@ if (-not $LoadedSnapins) {
 # Set path file names
 #-------------------------------------------------------------------
 $ScriptPath = split-path -parent $MyInvocation.MyCommand.Definition
-$VMs_input_file = Read-host "Plase enter CSV input file"
+$VMs_input_file = Read-host "Please enter a CSV input file"
 
 
 #-------------------------------------------------------------------
 # Set CREDENTIALS files to connect to Nutanix cluster (this KEY and PWD file were created using PS1 script with AES).
-#   I have include thios scription scripts on the repository.
+#   I have include this scription scripts on the repository.
 #-------------------------------------------------------------------
 $KeyFile = $ScriptPath + "\security_keys\ntx_admin.key"
 $PasswordFile = $ScriptPath + "\security_keys\ntx_admin.pwd"
@@ -117,7 +117,6 @@ Function ModifyNtxVMs {
 }
 
 
-
 # ----------------------------------------------------------------------------------------
 # Get content from CSV input file whith the VMs information
 # ----------------------------------------------------------------------------------------
@@ -125,7 +124,7 @@ $VMs_to_modify = get-content $VMs_input_file
 
 
 # ----------------------------------------------------
-# run prodcedure with every VM inside input file
+# Run prodcedure with each VM inside input file
 # ----------------------------------------------------
 
 foreach ($vm in $VMs_to_modify){
